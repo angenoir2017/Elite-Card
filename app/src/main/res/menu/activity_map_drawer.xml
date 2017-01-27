@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/enregistrer_aape"
+            android:icon="@drawable/florist"
+            android:title="Enregistrer un AAPE" />
+        <item
+            android:id="@+id/geolocaliser_aape"
+            android:icon="@drawable/globe"
+            android:title="Géolocalisation" />
+        <item
+            android:id="@+id/planing_visites_aape"
+            android:icon="@drawable/calendrier"
+            android:title="Planning des Visites" />
+        <item
+            android:id="@+id/visite_collecte_aape"
+            android:icon="@drawable/auto"
+            android:title="Visites de Collecte" />
+    </group>
+
+    <item android:title="Informations ">
+        <menu>
+            <item
+                android:id="@+id/aide_aape"
+                android:icon="@drawable/secure"
+                android:title="Aide" />
+            <item
+                android:id="@+id/apropos_aape"
+                android:icon="@drawable/infowhite"
+                android:title="A Propos" />
+        </menu>
+    </item>
+
+</menu>

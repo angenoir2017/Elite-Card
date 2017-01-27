@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/card_view_producteur"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="@dimen/md_keylines"
+        android:layout_marginRight="@dimen/md_keylines"
+        android:layout_marginBottom="3dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="3dp"
+        android:foreground="?attr/selectableItemBackground">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textView2cardPro"
+                android:layout_marginLeft="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/textView1cardPro"
+                android:padding="10dp"
+                android:text="Region : "
+                android:textSize="@dimen/textviewSize"
+                android:textColor="@color/black"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+            <TextView
+                android:id="@+id/textView3cardPro"
+                android:layout_marginLeft="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/textView2cardPro"
+                android:padding="10dp"
+                android:text="Prefecture : "
+                android:textSize="@dimen/textviewSize"
+                android:textColor="@color/black"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+            <TextView
+                android:id="@+id/card_arb_prefecture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView3cardPro"
+                android:layout_alignBottom="@+id/textView3cardPro"
+                android:layout_alignLeft="@+id/card_arb_region"
+                android:layout_alignStart="@+id/card_arb_region"
+                android:padding="10dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:text="@string/prefecture_producteur"
+                android:textSize="@dimen/textviewSize"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/textView4cardPro"
+                android:layout_marginLeft="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/textView3cardPro"
+                android:padding="10dp"
+                android:text="Canton : "
+                android:textSize="@dimen/textviewSize"
+                android:textColor="@color/black"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+            <TextView
+                android:id="@+id/card_arb_canton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView4cardPro"
+                android:layout_alignBottom="@+id/textView4cardPro"
+                android:layout_alignLeft="@+id/card_arb_prefecture"
+                android:layout_alignStart="@+id/card_arb_prefecture"
+                android:padding="10dp"
+                android:text="@string/canton_producteur"
+                android:textSize="@dimen/textviewSize"
+                android:textColor="@color/black"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+            <TextView
+                android:id="@+id/textView5cardPro"
+                android:layout_marginLeft="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/textView4cardPro"
+                android:padding="10dp"
+                android:text="Village : "
+                android:textSize="@dimen/textviewSize"
+                android:textColor="@color/black"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+            <TextView
+                android:id="@+id/card_arb_village"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView5cardPro"
+                android:layout_alignBottom="@+id/textView5cardPro"
+                android:layout_alignLeft="@+id/card_arb_canton"
+                android:layout_alignStart="@+id/card_arb_canton"
+                android:padding="10dp"
+                android:text="@string/village_producteur"
+                android:textSize="@dimen/textviewSize"
+                android:textColor="@color/black"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+            <TextView
+                android:id="@+id/card_arb_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="@string/code_producteur"
+                android:textSize="@dimen/textviewSize"
+                android:textColor="@color/black"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:layout_marginLeft="92dp"
+                android:layout_marginStart="92dp"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/textView1cardPro"
+                android:layout_toEndOf="@+id/textView1cardPro" />
+
+            <TextView
+                android:id="@+id/card_arb_region"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="@string/region_producteur"
+                android:textSize="@dimen/textviewSize"
+                android:textColor="@color/black"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:layout_alignBaseline="@+id/textView2cardPro"
+                android:layout_alignBottom="@+id/textView2cardPro"
+                android:layout_alignLeft="@+id/card_arb_code"
+                android:layout_alignStart="@+id/card_arb_code" />
+
+            <TextView
+                android:id="@+id/textView1cardPro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="Code Producteur :"
+                android:textSize="@dimen/textviewSize"
+                android:textColor="@color/black"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:layout_alignParentTop="true"
+                android:layout_alignLeft="@+id/textView2cardPro"
+                android:layout_alignStart="@+id/textView2cardPro" />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+</LinearLayout>

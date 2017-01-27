@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="regions">
+        <item>Plateaux</item>
+        <item>Centrale</item>
+        <item>Kara</item>
+        <item>Savanes</item>
+    </string-array>
+
+    <string-array name="attributarbre">
+        <item>Non</item>
+        <item>Faible</item>
+        <item>Moyen</item>
+        <item>Fort</item>
+    </string-array>
+
+    <string-array name="attributfruit">
+        <item>Faible</item>
+        <item>Moyen</item>
+        <item>Fort</item>
+    </string-array>
+</resources>

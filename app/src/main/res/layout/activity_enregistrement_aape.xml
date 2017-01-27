@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="60dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/codeshow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:gravity="center"
+                android:minWidth="250dp"
+                android:text="Code de l'arbre"
+                android:textSize="@dimen/textviewSize"
+                android:textColor="@color/black"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:gravity="center"
+                android:minWidth="250dp"
+                android:text="1-1-1-1"
+                android:textSize="@dimen/textviewSize"
+                android:textColor="@color/black"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/selctregiontxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:gravity="center"
+                android:minWidth="250dp"
+                android:text="Selectionner La Region"
+                android:textSize="@dimen/textviewSize"
+                android:textColor="@color/black"
+                android:textAlignment="center" />
+
+            <Spinner
+                android:id="@+id/regionaape"
+                android:layout_width="@dimen/spinnerSize"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:entries="@array/regions"
+                android:minWidth="@dimen/activity_horizontal_margin" />
+
+            <TextView
+                android:id="@+id/selctpreftxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:gravity="center"
+                android:minWidth="250dp"
+                android:text="Selectionner La Prefecture"
+                android:textSize="@dimen/textviewSize"
+                android:textColor="@color/black"
+                android:textAlignment="center" />
+
+            <Spinner
+                android:id="@+id/prefectureaape"
+                android:layout_width="@dimen/spinnerSize"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:minWidth="@dimen/activity_horizontal_margin" />
+
+            <TextView
+                android:id="@+id/selecCantonftxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:gravity="center"
+                android:minWidth="250dp"
+                android:text="Selectionner Le Canton"
+                android:textSize="@dimen/textviewSize"
+                android:textColor="@color/black"
+                android:textAlignment="center" />
+
+            <Spinner
+                android:id="@+id/cantonaape"
+                android:layout_width="@dimen/spinnerSize"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:minWidth="@dimen/activity_horizontal_margin" />
+
+            <TextView
+                android:id="@+id/selecVillageftxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:gravity="center"
+                android:minWidth="250dp"
+                android:text="Selectionner Le Village"
+                android:textSize="@dimen/textviewSize"
+                android:textColor="@color/black"
+                android:textAlignment="center"/>
+
+            <Spinner
+                android:id="@+id/villageaape"
+                android:layout_width="@dimen/spinnerSize"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:minWidth="@dimen/activity_horizontal_margin" />
+
+            <TextView
+                android:id="@+id/selecAgeftxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:gravity="center"
+                android:minWidth="250dp"
+                android:text="Age"
+                android:textSize="@dimen/textviewSize"
+                android:textColor="@color/black"
+                android:textAlignment="center" />
+
+            <pl.polak.clicknumberpicker.ClickNumberPickerView
+                android:id="@+id/ageaape"
+                android:layout_width="@dimen/spinnerSize"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/fab_margin"
+                app:swipe_animation="true"
+                app:swipe_enabled="true"
+                app:min_value="8"
+                app:max_value="25"
+                app:integer_priority="true"
+                app:picker_corner_radius="10"
+                app:pickers_background_color="@color/colorPrimaryDark"
+                app:value_background_color="@color/colorPrimary"
+                app:value_text_color="@android:color/white" />
+
+            <EditText
+                android:id="@+id/origineaape"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:ems="10"
+                android:hint="Origine Plant/Semence"
+                android:inputType="textPersonName"
+                android:minWidth="@dimen/activity_horizontal_margin" />
+
+            <Switch
+                android:id="@+id/marquageaape"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:minWidth="@dimen/activity_horizontal_margin"
+                android:text="Choix Et Marquage "
+                android:textSize="@dimen/textviewSize"
+                android:textColor="@color/black"
+                android:textOff="NON"
+                android:textOn="OUI" />
+
+            <EditText
+                android:id="@+id/hauteuraape"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:ems="10"
+                android:hint="Hauteur (en m)"
+                android:inputType="numberDecimal"
+                android:minWidth="@dimen/activity_horizontal_margin" />
+
+            <EditText
+                android:id="@+id/rayonnordaape"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:ems="10"
+                android:hint="Rayon  Nord (en m)"
+                android:inputType="numberDecimal"
+                android:minWidth="@dimen/activity_horizontal_margin" />
+
+            <EditText
+                android:id="@+id/rayonsudaape"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:ems="10"
+                android:hint="Rayon  Sud (en m)"
+                android:inputType="numberDecimal"
+                android:minWidth="@dimen/activity_horizontal_margin" />
+
+            <EditText
+                android:id="@+id/rayonestaape"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:ems="10"
+                android:hint="Rayon  Est (en m)"
+                android:inputType="numberDecimal"
+                android:minWidth="@dimen/activity_horizontal_margin" />
+
+            <EditText
+                android:id="@+id/rayonouestaape"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:ems="10"
+                android:hint="Rayon  Ouest (en m)"
+                android:inputType="numberDecimal"
+                android:minWidth="@dimen/activity_horizontal_margin" />
+
+            <Button
+                android:id="@+id/etapebutton1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:minWidth="@dimen/activity_horizontal_margin"
+                android:drawableRight="@drawable/ic_navigate_next_black_24dp"
+                android:text="Etape suivante "
+                android:textSize="@dimen/buttonSize"
+                android:textColor="@color/black"/>
+        </LinearLayout>
+    </ScrollView>
+
+    <include
+        layout="@layout/app_bar_map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header_map"
+        app:menu="@menu/activity_map_drawer" />
+
+</android.support.v4.widget.DrawerLayout>

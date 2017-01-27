@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="300dp"
+                android:layout_height="250dp"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:minWidth="250dp"
+                android:layout_gravity="center"
+                android:id="@+id/photofloraison"
+                android:adjustViewBounds="true" />
+            <Button
+                android:text="PHOTOGRAPHIER LES NOIX"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:minWidth="250dp"
+                android:layout_gravity="center"
+                android:drawableLeft="@drawable/appareilphoto"
+                android:id="@+id/photographiernoixrecoltebtn" />
+            <ImageView
+                android:layout_width="300dp"
+                android:layout_height="250dp"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:minWidth="250dp"
+                android:layout_gravity="center"
+                android:id="@+id/photodepelliculage"
+                android:adjustViewBounds="true" />
+            <Button
+                android:text="PHOTOGRAPHIER DEPELLICULAGE"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:minWidth="250dp"
+                android:layout_gravity="center"
+                android:drawableLeft="@drawable/appareilphoto"
+                android:id="@+id/photographierdepelliculbtn" />
+            <TextView
+                android:text="Taux D'Amande"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:minWidth="250dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:id="@+id/selctauxtxt"
+                android:textStyle="normal|bold"
+                android:textAlignment="center" />
+
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:minWidth="250dp"
+                android:entries="@array/attributfruit"
+                android:layout_gravity="center"
+                android:id="@+id/tauxamande" />
+            <TextView
+                android:text="Date De Recolte"
+                android:inputType="textMultiLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:minWidth="250dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:id="@+id/selcttxt"
+                android:textStyle="normal|bold"
+                android:textAlignment="center" />
+            <DatePicker
+
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:minWidth="250dp"
+                android:layout_gravity="center"
+                android:id="@+id/daterecolte"
+                android:calendarViewShown="false" />
+            <Switch
+                android:text="Facilite De Depelliculage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/facilitedepelliculage"
+                android:textAlignment="center"
+                android:textOn="OUI"
+                android:textOff="NON"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:minWidth="@dimen/activity_horizontal_margin"
+                android:layout_gravity="center"/>
+            <Switch
+                android:text="Bonne Forme Des Noix"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/bonneformenoix"
+                android:textAlignment="center"
+                android:textOn="OUI"
+                android:textOff="NON"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:minWidth="@dimen/activity_horizontal_margin"
+                android:layout_gravity="center"/>
+
+            <Switch
+                android:text="Facilite De Separation Noix-Pommes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/faciliteseparationnoixpomme"
+                android:textAlignment="center"
+                android:textOn="OUI"
+                android:textOff="NON"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:minWidth="@dimen/activity_horizontal_margin"
+                android:layout_gravity="center"/>
+            <EditText
+                android:hint="Rendement (En Kg)"
+                android:inputType="numberDecimal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:minWidth="250dp"
+                android:layout_gravity="center"
+                android:id="@+id/rendementrecolte" />
+            <EditText
+                android:hint="Observations"
+                android:inputType="textMultiLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:minWidth="250dp"
+                android:layout_gravity="center"
+                android:id="@+id/observationsrecolte" />
+
+            <Button
+                android:text="ENREGISITRER"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:minWidth="250dp"
+                android:layout_gravity="center"
+                android:drawableLeft="@drawable/appareilphoto"
+                android:id="@+id/enregistrerrecoltebtn" />
+
+
+
+        </LinearLayout>
+    </ScrollView>
+    <include
+        layout="@layout/app_bar_map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header_map"
+        app:menu="@menu/activity_map_drawer" />
+
+
+
+</android.support.v4.widget.DrawerLayout>

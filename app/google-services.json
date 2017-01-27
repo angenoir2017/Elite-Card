@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1009582577206",
+    "firebase_url": "https://elite-card.firebaseio.com",
+    "project_id": "elite-card",
+    "storage_bucket": "elite-card.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1009582577206:android:9881bd7496f052ac",
+        "android_client_info": {
+          "package_name": "com.codeeaters.elitecard"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1009582577206-1h8mlkbg41iui7iief7dvtcmb8qef4hn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.codeeaters.elitecard",
+            "certificate_hash": "2778E14CC76EEC655CAC95CAE5A1180F053C6619"
+          }
+        },
+        {
+          "client_id": "1009582577206-pqjnfbmn0btu3gkg95mv9av9ao6a2isg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZ1tLNnX73Eu794-2-hU6EnlNYndJoXRk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1009582577206-pqjnfbmn0btu3gkg95mv9av9ao6a2isg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

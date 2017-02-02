@@ -33,7 +33,7 @@ public class MapActivity extends AppCompatActivity
         SharedPreferences sharedPreferences = getSharedPreferences(AGENT_PREFERENCES, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("code", "1-1");
-        editor.putBoolean("isVisite", Boolean.TRUE);
+        editor.putBoolean("isVisite", Boolean.FALSE);
         editor.apply();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);

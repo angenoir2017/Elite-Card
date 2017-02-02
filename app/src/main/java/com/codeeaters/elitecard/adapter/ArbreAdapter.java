@@ -2,6 +2,7 @@ package com.codeeaters.elitecard.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
@@ -13,6 +14,8 @@ import android.widget.TextView;
 
 import com.codeeaters.elitecard.R;
 import com.codeeaters.elitecard.activity.EnregistrementAapeActivity;
+import com.codeeaters.elitecard.activity.ListArbresActivity;
+import com.codeeaters.elitecard.activity.MapActivity;
 import com.codeeaters.elitecard.activity.VisiteFloraisonActivity;
 import com.codeeaters.elitecard.database.entities.Arbre;
 import com.codeeaters.elitecard.database.entities.Producteur;
@@ -105,6 +108,17 @@ public class ArbreAdapter extends RecyclerView.Adapter<ArbreAdapter.ArbreViewHol
             tprefecture.setTypeface(ubuntuCondenced);
             tcanton.setTypeface(ubuntuCondenced);
             tvillage.setTypeface(ubuntuCondenced);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    SharedPreferences sharedPreferences = context.getSharedPreferences(MapActivity.AGENT_PREFERENCES, Context.MODE_PRIVATE);
+                    if (sharedPreferences.getBoolean("isVisite", Boolean.FALSE)) {
+                        Intent intent = new Intent(context, VisiteFloraisonActivity.class);
+                        context.startActivity(intent);
+                    }
+                }
+            });
         }
     }
 }

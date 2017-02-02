@@ -88,12 +88,11 @@ public class ListArbresActivity extends AppCompatActivity implements NavigationV
 
     @Override
     protected void onResume() {
-//        super.onResume();
-//        SharedPreferences sharedPreferences = getSharedPreferences(MapActivity.AGENT_PREFERENCES, Context.MODE_PRIVATE);
-//        boolean isvisite = sharedPreferences.getBoolean("isVisitte", Boolean.FALSE);
-//        if (isvisite){
-//            fab.hide();
-//        }
+        super.onResume();
+        SharedPreferences sharedPreferences = context.getSharedPreferences(MapActivity.AGENT_PREFERENCES, Context.MODE_PRIVATE);
+        if (sharedPreferences.getBoolean("isVisite", Boolean.FALSE)) {
+            fab.hide();
+        }
     }
 
     @Override
@@ -154,6 +153,8 @@ public class ListArbresActivity extends AppCompatActivity implements NavigationV
             // Handle the camera action
 //            Intent intent = new Intent(this, EnregistrementAapeActivity.class);
             Intent intent = new Intent(this, ListProducteursActivity.class);
+            SharedPreferences sharedPreferences = getSharedPreferences(MapActivity.AGENT_PREFERENCES, Context.MODE_PRIVATE);
+            sharedPreferences.edit().putBoolean("isVisite", Boolean.FALSE).apply();
             this.startActivityForResult(intent, 0);
         }
         if (id == R.id.planing_visites_aape) {

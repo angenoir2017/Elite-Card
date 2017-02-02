@@ -1,6 +1,8 @@
 package com.codeeaters.elitecard.activity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
 import android.net.Uri;
@@ -184,6 +186,8 @@ public class VisiteFloraisonActivity extends AppCompatActivity implements Naviga
         if (id == R.id.enregistrer_aape) {
             // Handle the camera action
             Intent intent = new Intent(this, ListProducteursActivity.class);
+            SharedPreferences sharedPreferences = getSharedPreferences(MapActivity.AGENT_PREFERENCES, Context.MODE_PRIVATE);
+            sharedPreferences.edit().putBoolean("isVisite", Boolean.FALSE).apply();
             this.startActivityForResult(intent, 0);
         }
         if (id == R.id.planing_visites_aape) {

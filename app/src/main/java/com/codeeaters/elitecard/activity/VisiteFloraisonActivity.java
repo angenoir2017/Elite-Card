@@ -118,13 +118,13 @@ public class VisiteFloraisonActivity extends AppCompatActivity implements Naviga
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == CAMERA_REQUEST_CODE && resultCode == RESULT_OK) {
             Bitmap imageBitmap = (Bitmap) data.getExtras().get("data");
-            if (nbrPhoto == 1){
+            if (nbrPhoto == 1) {
                 photofloraison1.setImageBitmap(imageBitmap);
             }
-            if (nbrPhoto == 2){
+            if (nbrPhoto == 2) {
                 photofloraison2.setImageBitmap(imageBitmap);
             }
-            if (nbrPhoto == 3){
+            if (nbrPhoto == 3) {
                 photofloraison3.setImageBitmap(imageBitmap);
                 photo.setEnabled(false);
             }
@@ -140,9 +140,7 @@ public class VisiteFloraisonActivity extends AppCompatActivity implements Naviga
         Calendar calendar = Calendar.getInstance();
         calendar.set(year, month, day);
 
-
         return calendar.getTime();
-
     }
 
     @Override
@@ -218,7 +216,5 @@ public class VisiteFloraisonActivity extends AppCompatActivity implements Naviga
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String dateString = sdf.format(er);
         Toast.makeText(this, dateString, Toast.LENGTH_LONG).show();
-
-
     }
 }

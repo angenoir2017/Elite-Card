@@ -39,9 +39,12 @@ public class Arbre implements Parcelable {
     private Double latitude = 0.0;
     private long idProducteur;
     private String codeProducteur;
+    private long idvisiteFloraison;
+    private String codeFloraison;
+    private long idvisiteFructification;
+    private String codeFructification;
 
     public static final String TABLE = "arbres";
-
     public static final String ID_ARBRE_COLUMN = "id_arbre";
     public static final String CODE_ARBRE_COLUMN = "code_arbre";
     public static final String AGE_ARBRE_COLUMN = "age";
@@ -68,12 +71,16 @@ public class Arbre implements Parcelable {
     public static final String LAT_COLUMN = "latitude";
     public static final String ID_PRODUCTEUR_COLUMN = "id_producteur";
     public static final String CODE_PRODUCTEUR_COLUMN = "code_producteur";
+    public static final String ID_FLORAISON_COLUMN = "id_visite_floraison";
+    public static final String CODE_FLORAISON_COLUMN = "code_floraison";
+    public static final String ID_FRUCTIFICATION_COLUMN = "id_visite_fructification";
+    public static final String CODE_FRUCTIFICATION_COLUMN = "code_fructification";
 
     public static final String[] COLUMNS = {ID_ARBRE_COLUMN, CODE_ARBRE_COLUMN, AGE_ARBRE_COLUMN,
             REGION_COLUMN, PREFECTURE_COLUMN, CANTON_COLUMN, VILLAGE_COLUMN, ORIGINE_COLUMN,
             CHOIX_COLUMN, H_COLUMN, RN_COLUMN, RS_COLUMN, RE_COLUMN, RO_COLUMN, CT_COLUMN,
             CE_COLUMN, CC_COLUMN, AR_COLUMN, EP_COLUMN, DCNS_COLUMN, DCEO_COLUMN, OBS_COLUMN,
-            LON_COLUMN, LAT_COLUMN, ID_PRODUCTEUR_COLUMN, CODE_PRODUCTEUR_COLUMN};
+            LON_COLUMN, LAT_COLUMN, ID_PRODUCTEUR_COLUMN, CODE_PRODUCTEUR_COLUMN, ID_FLORAISON_COLUMN, CODE_FLORAISON_COLUMN, ID_FRUCTIFICATION_COLUMN, CODE_FRUCTIFICATION_COLUMN};
 
     public static final String CREATE_ARBRE_TABLE = "CREATE TABLE "
             + TABLE + " (" + ID_ARBRE_COLUMN + " INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -102,6 +109,10 @@ public class Arbre implements Parcelable {
             + LAT_COLUMN + " REAL, "
             + ID_PRODUCTEUR_COLUMN + " INTEGER, "
             + CODE_PRODUCTEUR_COLUMN + " TEXT, "
+            + ID_FLORAISON_COLUMN + " INTEGER, "
+            + CODE_FLORAISON_COLUMN + " TEXT, "
+            + ID_FRUCTIFICATION_COLUMN + " INTEGER, "
+            + CODE_FRUCTIFICATION_COLUMN + " TEXT, "
             + "FOREIGN KEY(" + ID_PRODUCTEUR_COLUMN + ") REFERENCES " + Producteur.TABLE + "(" + ID_PRODUCTEUR_COLUMN + "),"
             + "FOREIGN KEY(" + CODE_PRODUCTEUR_COLUMN + ") REFERENCES " + Producteur.TABLE + "(" + CODE_PRODUCTEUR_COLUMN + "))";
 
@@ -114,42 +125,6 @@ public class Arbre implements Parcelable {
     public static final String INSERT4 = "INSERT INTO arbres VALUES(5,'1-1-1-3',1,'aze','zae','ear','era','aer',1,23.0,14.0,23.0,21.0,56.0,0,'aze','er',1,56.0,1,6,'azer',56.0,56.0,1,'1-1-1');";
 
     public Arbre() {
-    }
-
-    public Arbre(long idArbre, String codeArbre, int age, String region, String prefecture,
-                 String canton, String village, String origineSemence, int choixMarquage,
-                 Double hauteur, Double rayonNord, Double rayonSud, Double rayonEst,
-                 Double rayonOuest, int couronneTaille, String couronneEtalee,
-                 String couronneCompacte, String arbreRatatine, Double ecratemementPied,
-                 Double diametreCouronneNordSud, Double diametreCouronneEstOuest,
-                 String observation, Double longitude, Double latitude, long idProducteur,
-                 String codeProducteur) {
-        this.idArbre = idArbre;
-        this.codeArbre = codeArbre;
-        this.age = age;
-        this.region = region;
-        this.prefecture = prefecture;
-        this.canton = canton;
-        this.village = village;
-        this.origineSemence = origineSemence;
-        this.choixMarquage = choixMarquage;
-        this.hauteur = hauteur;
-        this.rayonNord = rayonNord;
-        this.rayonSud = rayonSud;
-        this.rayonEst = rayonEst;
-        this.rayonOuest = rayonOuest;
-        this.couronneTaille = couronneTaille;
-        this.couronneEtalee = couronneEtalee;
-        this.couronneCompacte = couronneCompacte;
-        this.arbreRatatine = arbreRatatine;
-        this.ecratemementPied = ecratemementPied;
-        this.diametreCouronneNordSud = diametreCouronneNordSud;
-        this.diametreCouronneEstOuest = diametreCouronneEstOuest;
-        this.observation = observation;
-        this.longitude = longitude;
-        this.latitude = latitude;
-        this.idProducteur = idProducteur;
-        this.codeProducteur = codeProducteur;
     }
 
     protected Arbre(Parcel in) {
@@ -179,6 +154,10 @@ public class Arbre implements Parcelable {
         latitude = in.readDouble();
         idProducteur = in.readLong();
         codeProducteur = in.readString();
+        idvisiteFloraison = in.readLong();
+        codeFloraison = in.readString();
+        idvisiteFructification = in.readLong();
+        codeFructification = in.readString();
     }
 
     public static final Creator<Arbre> CREATOR = new Creator<Arbre>() {
@@ -226,6 +205,10 @@ public class Arbre implements Parcelable {
         dest.writeDouble(latitude);
         dest.writeLong(idProducteur);
         dest.writeString(codeProducteur);
+        dest.writeLong(idvisiteFloraison);
+        dest.writeString(codeFloraison);
+        dest.writeLong(idvisiteFructification);
+        dest.writeString(codeFructification);
     }
 
     public static void createTable(SQLiteDatabase database) {
@@ -461,6 +444,38 @@ public class Arbre implements Parcelable {
         this.codeProducteur = codeProducteur;
     }
 
+    public long getIdvisiteFloraison() {
+        return idvisiteFloraison;
+    }
+
+    public void setIdvisiteFloraison(long idvisiteFloraison) {
+        this.idvisiteFloraison = idvisiteFloraison;
+    }
+
+    public String getCodeFloraison() {
+        return codeFloraison;
+    }
+
+    public void setCodeFloraison(String codeFloraison) {
+        this.codeFloraison = codeFloraison;
+    }
+
+    public long getIdvisiteFructification() {
+        return idvisiteFructification;
+    }
+
+    public void setIdvisiteFructification(long idvisiteFructification) {
+        this.idvisiteFructification = idvisiteFructification;
+    }
+
+    public String getCodeFructification() {
+        return codeFructification;
+    }
+
+    public void setCodeFructification(String codeFructification) {
+        this.codeFructification = codeFructification;
+    }
+
     @Override
     public String toString() {
         return "Arbre{" +
@@ -481,7 +496,7 @@ public class Arbre implements Parcelable {
                 ", couronneTaille=" + couronneTaille +
                 ", couronneEtalee='" + couronneEtalee + '\'' +
                 ", couronneCompacte='" + couronneCompacte + '\'' +
-                ", arbreRatatine=" + arbreRatatine +
+                ", arbreRatatine='" + arbreRatatine + '\'' +
                 ", ecratemementPied=" + ecratemementPied +
                 ", diametreCouronneNordSud=" + diametreCouronneNordSud +
                 ", diametreCouronneEstOuest=" + diametreCouronneEstOuest +
@@ -490,64 +505,10 @@ public class Arbre implements Parcelable {
                 ", latitude=" + latitude +
                 ", idProducteur=" + idProducteur +
                 ", codeProducteur='" + codeProducteur + '\'' +
+                ", idvisiteFloraison=" + idvisiteFloraison +
+                ", codeFloraison='" + codeFloraison + '\'' +
+                ", idvisiteFructification=" + idvisiteFructification +
+                ", codeFructification='" + codeFructification + '\'' +
                 '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Arbre arbre = (Arbre) o;
-
-        if (idArbre != arbre.idArbre) return false;
-        if (age != arbre.age) return false;
-        if (choixMarquage != arbre.choixMarquage) return false;
-        if (couronneTaille != arbre.couronneTaille) return false;
-        if (arbreRatatine != arbre.arbreRatatine) return false;
-        if (diametreCouronneNordSud != arbre.diametreCouronneNordSud) return false;
-        if (diametreCouronneEstOuest != arbre.diametreCouronneEstOuest) return false;
-        if (idProducteur != arbre.idProducteur) return false;
-        if (codeArbre != null ? !codeArbre.equals(arbre.codeArbre) : arbre.codeArbre != null)
-            return false;
-        if (region != null ? !region.equals(arbre.region) : arbre.region != null) return false;
-        if (prefecture != null ? !prefecture.equals(arbre.prefecture) : arbre.prefecture != null)
-            return false;
-        if (canton != null ? !canton.equals(arbre.canton) : arbre.canton != null) return false;
-        if (village != null ? !village.equals(arbre.village) : arbre.village != null) return false;
-        if (origineSemence != null ? !origineSemence.equals(arbre.origineSemence) : arbre.origineSemence != null)
-            return false;
-        if (hauteur != null ? !hauteur.equals(arbre.hauteur) : arbre.hauteur != null) return false;
-        if (rayonNord != null ? !rayonNord.equals(arbre.rayonNord) : arbre.rayonNord != null)
-            return false;
-        if (rayonSud != null ? !rayonSud.equals(arbre.rayonSud) : arbre.rayonSud != null)
-            return false;
-        if (rayonEst != null ? !rayonEst.equals(arbre.rayonEst) : arbre.rayonEst != null)
-            return false;
-        if (rayonOuest != null ? !rayonOuest.equals(arbre.rayonOuest) : arbre.rayonOuest != null)
-            return false;
-        if (couronneEtalee != null ? !couronneEtalee.equals(arbre.couronneEtalee) : arbre.couronneEtalee != null)
-            return false;
-        if (couronneCompacte != null ? !couronneCompacte.equals(arbre.couronneCompacte) : arbre.couronneCompacte != null)
-            return false;
-        if (ecratemementPied != null ? !ecratemementPied.equals(arbre.ecratemementPied) : arbre.ecratemementPied != null)
-            return false;
-        if (observation != null ? !observation.equals(arbre.observation) : arbre.observation != null)
-            return false;
-        if (longitude != null ? !longitude.equals(arbre.longitude) : arbre.longitude != null)
-            return false;
-        if (latitude != null ? !latitude.equals(arbre.latitude) : arbre.latitude != null)
-            return false;
-        return codeProducteur != null ? codeProducteur.equals(arbre.codeProducteur) : arbre.codeProducteur == null;
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = (int) idArbre;
-        result = 31 * result + (codeArbre != null ? codeArbre.hashCode() : 0);
-        result = (int) (31 * result + idProducteur);
-        result = 31 * result + (codeProducteur != null ? codeProducteur.hashCode() : 0);
-        return result;
     }
 }

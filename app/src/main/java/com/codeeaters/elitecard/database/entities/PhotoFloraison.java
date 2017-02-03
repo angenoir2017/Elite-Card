@@ -2,17 +2,20 @@ package com.codeeaters.elitecard.database.entities;
 
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.util.Log;
+
+import java.io.ByteArrayOutputStream;
 
 /**
  * Created by leinad on 2/2/17 8:16 AM.
  */
 
-public class PhotosFloraison {
+public class PhotoFloraison {
 
     private static final String TAG = "Db-Photo-Floraison-Log";
 
-    private long idPhotos;
+    private long idPhoto;
     private Bitmap photo;
     private long idvisiteFloraison;
     private String codeFloraison;
@@ -36,7 +39,7 @@ public class PhotosFloraison {
 
     public static final String DROP_PHOTO_FLORAISON_TABLE = "DROP TABLE IF EXISTS " + TABLE;
 
-    public PhotosFloraison() {
+    public PhotoFloraison() {
     }
 
     public static void createTable(SQLiteDatabase database) {
@@ -49,12 +52,18 @@ public class PhotosFloraison {
         database.execSQL(DROP_PHOTO_FLORAISON_TABLE);
     }
 
-    public long getIdPhotos() {
-        return idPhotos;
+    public byte[] getPhotoBuffer() {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        photo.compress(Bitmap.CompressFormat.PNG, 100, out);
+        return out.toByteArray();
     }
 
-    public void setIdPhotos(long idPhotos) {
-        this.idPhotos = idPhotos;
+    public long getIdPhoto() {
+        return idPhoto;
+    }
+
+    public void setIdPhoto(long idPhoto) {
+        this.idPhoto = idPhoto;
     }
 
     public Bitmap getPhoto() {
@@ -63,6 +72,10 @@ public class PhotosFloraison {
 
     public void setPhoto(Bitmap photo) {
         this.photo = photo;
+    }
+
+    public void setPhoto(byte[] bytes) {
+        this.photo = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
     }
 
     public long getIdvisiteFloraison() {

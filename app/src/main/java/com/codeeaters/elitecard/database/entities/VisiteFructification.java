@@ -22,7 +22,7 @@ public class VisiteFructification {
     private String obs;
     private long idArbre;
     private String codeArbre;
-    private ArrayList<PhotosFructification> photosFructification;
+    private ArrayList<PhotoFructification> photoFructification;
 
     public static final String TABLE = "visite_fructification";
     public static final String ID_FRUCTIFICATION_COLUMN = "id_visite_fructification";
@@ -138,11 +138,11 @@ public class VisiteFructification {
         this.codeArbre = codeArbre;
     }
 
-    public ArrayList<PhotosFructification> getPhotosFructification() {
-        return photosFructification;
+    public ArrayList<PhotoFructification> getPhotoFructification() {
+        return photoFructification;
     }
 
-    public void setPhotosFructification(ArrayList<PhotosFructification> photosFructification) {
-        this.photosFructification = photosFructification;
+    public void setPhotoFructification(ArrayList<PhotoFructification> photoFructification) {
+        this.photoFructification = photoFructification;
     }
 }

@@ -26,8 +26,8 @@ import com.codeeaters.elitecard.Aide;
 import com.codeeaters.elitecard.Apropos;
 import com.codeeaters.elitecard.R;
 import com.codeeaters.elitecard.adapter.SpinnerAdapter;
-import com.codeeaters.elitecard.database.dao.ArbreDao;
-import com.codeeaters.elitecard.database.dao.ProducteurDao;
+import com.codeeaters.elitecard.database.dao.ArbreDAO;
+import com.codeeaters.elitecard.database.dao.ProducteurDAO;
 import com.codeeaters.elitecard.database.entities.Arbre;
 import com.codeeaters.elitecard.database.entities.Producteur;
 
@@ -59,8 +59,8 @@ public class EnregistrerAapeSuiteActivity extends AppCompatActivity implements V
     private SpinnerAdapter spinnerAdapter;
     private Arbre arbre;
     private Producteur producteur;
-    private ProducteurDao producteurDao;
-    private ArbreDao arbreDao;
+    private ProducteurDAO producteurDao;
+    private ArbreDAO arbreDao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,8 +94,8 @@ public class EnregistrerAapeSuiteActivity extends AppCompatActivity implements V
         enregistrer.setTypeface(ubuntuCondenced);
         enregistrer.setOnClickListener(this);
 
-        producteurDao = new ProducteurDao(this);
-        arbreDao = new ArbreDao(this);
+        producteurDao = new ProducteurDAO(this);
+        arbreDao = new ArbreDAO(this);
 
         arbre = (Arbre) getIntent().getExtras().get("arbre");
         producteur = (Producteur) getIntent().getExtras().get("producteur");

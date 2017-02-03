@@ -21,7 +21,7 @@ import com.codeeaters.elitecard.Aide;
 import com.codeeaters.elitecard.Apropos;
 import com.codeeaters.elitecard.R;
 import com.codeeaters.elitecard.adapter.ProducteurAdapter;
-import com.codeeaters.elitecard.database.dao.ProducteurDao;
+import com.codeeaters.elitecard.database.dao.ProducteurDAO;
 import com.codeeaters.elitecard.database.entities.Producteur;
 
 import java.util.ArrayList;
@@ -30,7 +30,7 @@ import java.util.ArrayList;
 public class ListProducteursActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
     private RecyclerView recyclerView;
-    private ProducteurDao producteurDao;
+    private ProducteurDAO producteurDao;
     private ArrayList<Producteur> producteurs;
     private ProducteurAdapter producteurAdapter;
     private Context context;
@@ -41,7 +41,7 @@ public class ListProducteursActivity extends AppCompatActivity implements Naviga
         setContentView(R.layout.list_items);
         this.context = this;
 
-        producteurDao = new ProducteurDao(this);
+        producteurDao = new ProducteurDAO(this);
         producteurs = new ArrayList<>();
         producteurAdapter = new ProducteurAdapter(producteurs, this);
 

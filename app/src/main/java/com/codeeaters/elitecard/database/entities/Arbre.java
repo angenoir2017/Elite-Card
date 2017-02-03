@@ -37,6 +37,8 @@ public class Arbre implements Parcelable {
     private String observation = "";
     private Double longitude = 0.0;
     private Double latitude = 0.0;
+    private int visiteFloraison;
+    private int visiteFructification;
     private long idProducteur;
     private String codeProducteur;
     private long idvisiteFloraison;
@@ -69,6 +71,8 @@ public class Arbre implements Parcelable {
     public static final String OBS_COLUMN = "observation_arbre";
     public static final String LON_COLUMN = "longitude";
     public static final String LAT_COLUMN = "latitude";
+    public static final String VISITE_FL_COLUMN = "visite_floraison";
+    public static final String VISITE_FR_COLUMN = "visite_fructification";
     public static final String ID_PRODUCTEUR_COLUMN = "id_producteur";
     public static final String CODE_PRODUCTEUR_COLUMN = "code_producteur";
     public static final String ID_FLORAISON_COLUMN = "id_visite_floraison";
@@ -80,7 +84,9 @@ public class Arbre implements Parcelable {
             REGION_COLUMN, PREFECTURE_COLUMN, CANTON_COLUMN, VILLAGE_COLUMN, ORIGINE_COLUMN,
             CHOIX_COLUMN, H_COLUMN, RN_COLUMN, RS_COLUMN, RE_COLUMN, RO_COLUMN, CT_COLUMN,
             CE_COLUMN, CC_COLUMN, AR_COLUMN, EP_COLUMN, DCNS_COLUMN, DCEO_COLUMN, OBS_COLUMN,
-            LON_COLUMN, LAT_COLUMN, ID_PRODUCTEUR_COLUMN, CODE_PRODUCTEUR_COLUMN, ID_FLORAISON_COLUMN, CODE_FLORAISON_COLUMN, ID_FRUCTIFICATION_COLUMN, CODE_FRUCTIFICATION_COLUMN};
+            LON_COLUMN, LAT_COLUMN, VISITE_FL_COLUMN, VISITE_FR_COLUMN, ID_PRODUCTEUR_COLUMN, CODE_PRODUCTEUR_COLUMN,
+            ID_FLORAISON_COLUMN, CODE_FLORAISON_COLUMN, ID_FRUCTIFICATION_COLUMN,
+            CODE_FRUCTIFICATION_COLUMN};
 
     public static final String CREATE_ARBRE_TABLE = "CREATE TABLE "
             + TABLE + " (" + ID_ARBRE_COLUMN + " INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -107,6 +113,8 @@ public class Arbre implements Parcelable {
             + OBS_COLUMN + " TEXT, "
             + LON_COLUMN + " REAL, "
             + LAT_COLUMN + " REAL, "
+            + VISITE_FL_COLUMN + " INTEGER, "
+            + VISITE_FR_COLUMN + " INTEGER, "
             + ID_PRODUCTEUR_COLUMN + " INTEGER, "
             + CODE_PRODUCTEUR_COLUMN + " TEXT, "
             + ID_FLORAISON_COLUMN + " INTEGER, "
@@ -118,11 +126,11 @@ public class Arbre implements Parcelable {
 
     public static final String DROP_PRODUCTEUR_TABLE = "DROP TABLE IF EXISTS " + TABLE;
 
-    public static final String INSERT = "INSERT INTO arbres VALUES(1,'1-1-1-1',8,'aaze','azeaz','azea','azea','aze',1,23.0,2.0,3.0,4.0,3.0,1,'azee','aze',1,1.0,1,3,'azeze',56.0,56.0,1,'1-1-1');";
-    public static final String INSERT1 = "INSERT INTO arbres VALUES(2,'1-1-1-2',3,'azer','aze','aze','aze','aze',2,23.0,23.0,12.0,12.0,12.0,1,'aze','aze',1,1.0,1,1,'aze',56.0,56.0,1,'1-1-1');";
-    public static final String INSERT2 = "INSERT INTO arbres VALUES(3,'1-1-2-1',2,'aze','aze','aze','aze','aze',1,2.0,1.0,23.0,23.0,23.0,1,'aze','aze',0,1.0,1,2,'aze',56.0,56.0,2,'1-1-2');";
-    public static final String INSERT3 = "INSERT INTO arbres VALUES(4,'1-1-2-2',2,'aze','aze','er','re','re',1,2.0,23.0,23.0,21.0,1.0,0,'aze','aze',0,1.0,2,1,'aze',56.0,56.0,2,'1-1-2');";
-    public static final String INSERT4 = "INSERT INTO arbres VALUES(5,'1-1-1-3',1,'aze','zae','ear','era','aer',1,23.0,14.0,23.0,21.0,56.0,0,'aze','er',1,56.0,1,6,'azer',56.0,56.0,1,'1-1-1');";
+    public static final String INSERT = "INSERT INTO arbres VALUES(1,'1-1-1-1',8,'aaze','azeaz','azea','azea','aze',1,23.0,2.0,3.0,4.0,3.0,1,'azee','aze',1,1.0,1,3,'azeze',56.0,56.0,0,0,1,'1-1-1',1,'1',1,'1');";
+    public static final String INSERT1 = "INSERT INTO arbres VALUES(2,'1-1-1-2',3,'azer','aze','aze','aze','aze',2,23.0,23.0,12.0,12.0,12.0,1,'aze','aze',1,1.0,1,1,'aze',56.0,56.0,0,0,1,'1-1-1',1,'1',1,'1');";
+    public static final String INSERT2 = "INSERT INTO arbres VALUES(3,'1-1-2-1',2,'aze','aze','aze','aze','aze',1,2.0,1.0,23.0,23.0,23.0,1,'aze','aze',0,1.0,1,2,'aze',56.0,56.0,0,0,2,'1-1-2',1,'1',1,'1');";
+    public static final String INSERT3 = "INSERT INTO arbres VALUES(4,'1-1-2-2',2,'aze','aze','er','re','re',1,2.0,23.0,23.0,21.0,1.0,0,'aze','aze',0,1.0,2,1,'aze',56.0,56.0,0,0,2,'1-1-2',1,'1',1,'1');";
+    public static final String INSERT4 = "INSERT INTO arbres VALUES(5,'1-1-1-3',1,'aze','zae','ear','era','aer',1,23.0,14.0,23.0,21.0,56.0,0,'aze','er',1,56.0,1,6,'azer',56.0,56.0,0,0,1,'1-1-1',1,'1',1,'1');";
 
     public Arbre() {
     }
@@ -152,6 +160,8 @@ public class Arbre implements Parcelable {
         observation = in.readString();
         longitude = in.readDouble();
         latitude = in.readDouble();
+        visiteFloraison = in.readInt();
+        visiteFructification = in.readInt();
         idProducteur = in.readLong();
         codeProducteur = in.readString();
         idvisiteFloraison = in.readLong();
@@ -203,7 +213,9 @@ public class Arbre implements Parcelable {
         dest.writeString(observation);
         dest.writeDouble(longitude);
         dest.writeDouble(latitude);
-        dest.writeLong(idProducteur);
+        dest.writeInt(visiteFloraison);
+        dest.writeInt(couronneTaille);
+        dest.writeLong(visiteFructification);
         dest.writeString(codeProducteur);
         dest.writeLong(idvisiteFloraison);
         dest.writeString(codeFloraison);
@@ -234,6 +246,22 @@ public class Arbre implements Parcelable {
     public static void dropTable(SQLiteDatabase database) {
         Log.d(TAG, DROP_PRODUCTEUR_TABLE);
         database.execSQL(DROP_PRODUCTEUR_TABLE);
+    }
+
+    public int getVisiteFloraison() {
+        return visiteFloraison;
+    }
+
+    public void setVisiteFloraison(int visiteFloraison) {
+        this.visiteFloraison = visiteFloraison;
+    }
+
+    public int getVisiteFructification() {
+        return visiteFructification;
+    }
+
+    public void setVisiteFructification(int visiteFructification) {
+        this.visiteFructification = visiteFructification;
     }
 
     public long getIdArbre() {
@@ -503,6 +531,8 @@ public class Arbre implements Parcelable {
                 ", observation='" + observation + '\'' +
                 ", longitude=" + longitude +
                 ", latitude=" + latitude +
+                ", visiteFloraison=" + visiteFloraison +
+                ", visiteFructification=" + visiteFructification +
                 ", idProducteur=" + idProducteur +
                 ", codeProducteur='" + codeProducteur + '\'' +
                 ", idvisiteFloraison=" + idvisiteFloraison +

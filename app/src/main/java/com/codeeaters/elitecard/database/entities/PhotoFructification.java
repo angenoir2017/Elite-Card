@@ -2,32 +2,35 @@ package com.codeeaters.elitecard.database.entities;
 
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.util.Log;
+
+import java.io.ByteArrayOutputStream;
 
 /**
  * Created by leinad on 2/3/17 6:22 AM.
  */
 
-public class PhotosFructification {
+public class PhotoFructification {
 
     private static final String TAG = "Db-Photo-Fructific*-Log";
 
-    private long idPhotos;
+    private long idPhoto;
     private Bitmap photo;
     private long idvisiteFructification;
     private String codeFructification;
 
     public static final String TABLE = "photo_fructification";
-    public static final String ID_PHOTO_FLORAISON_COLUMN = "id_photo_fructification";
+    public static final String ID_PHOTO_FRUCTIFICATION_COLUMN = "id_photo_fructification";
     public static final String PHOTO_COLUMN = "photo";
     public static final String ID_FRUCTIFICATION_COLUMN = "id_visite_fructification";
     public static final String CODE_FRUCTIFICATION_COLUMN = "code_fructification";
 
-    public static final String[] COLUMNS = {ID_PHOTO_FLORAISON_COLUMN,
+    public static final String[] COLUMNS = {ID_PHOTO_FRUCTIFICATION_COLUMN,
             PHOTO_COLUMN, ID_FRUCTIFICATION_COLUMN, CODE_FRUCTIFICATION_COLUMN};
 
     public static final String CREATE_PHOTO_FLORAISON_TABLE = "CREATE TABLE "
-            + TABLE + " (" + ID_PHOTO_FLORAISON_COLUMN + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + TABLE + " (" + ID_PHOTO_FRUCTIFICATION_COLUMN + " INTEGER PRIMARY KEY AUTOINCREMENT, "
             + PHOTO_COLUMN + " BLOB, "
             + ID_FRUCTIFICATION_COLUMN + " INTEGER, "
             + CODE_FRUCTIFICATION_COLUMN + " TEXT, "
@@ -46,23 +49,33 @@ public class PhotosFructification {
         database.execSQL(DROP_PHOTO_FLORAISON_TABLE);
     }
 
-    public PhotosFructification() {
+    public PhotoFructification() {
     }
 
-    public long getIdPhotos() {
-        return idPhotos;
+    public long getIdPhoto() {
+        return idPhoto;
     }
 
-    public void setIdPhotos(long idPhotos) {
-        this.idPhotos = idPhotos;
+    public void setIdPhoto(long idPhoto) {
+        this.idPhoto = idPhoto;
     }
 
     public Bitmap getPhoto() {
         return photo;
     }
 
+    public byte[] getPhotoBuffer() {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        photo.compress(Bitmap.CompressFormat.PNG, 100, out);
+        return out.toByteArray();
+    }
+
     public void setPhoto(Bitmap photo) {
         this.photo = photo;
+    }
+
+    public void setPhoto(byte[] bytes) {
+        this.photo = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
     }
 
     public long getIdvisiteFructification() {

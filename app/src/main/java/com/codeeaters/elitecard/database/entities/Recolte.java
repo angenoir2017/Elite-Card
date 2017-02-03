@@ -9,8 +9,8 @@ import java.util.ArrayList;
  * Created by leinad on 2/3/17 6:23 AM.
  */
 
-public class VisiteRecoltes {
-    private static final String TAG = "Db-Visite-Recoltes-Log";
+public class Recolte {
+    private static final String TAG = "Db-Visite-Recolte-Log";
 
     private long idvisiteRecolte;
     private String codeRecolte;
@@ -23,7 +23,7 @@ public class VisiteRecoltes {
     private String obs;
     private long idArbre;
     private String codeArbre;
-    private ArrayList<PhotosRecoltes> photosRecoltes;
+    private ArrayList<PhotoRecolte> photoRecoltes;
 
     public static final String TABLE = "recoltes";
     public static final String ID_RECOLTES_COLUMN = "id_visite_recolte";
@@ -37,7 +37,7 @@ public class VisiteRecoltes {
     public static final String ID_ARBRE_COLUMN = "id_arbre";
     public static final String CODE_ARBRE_COLUMN = "code_arbre";
 
-    public static final String[] b = {ID_RECOLTES_COLUMN, CODE_RECOLTES_COLUMN,
+    public static final String[] COLUMNS = {ID_RECOLTES_COLUMN, CODE_RECOLTES_COLUMN,
             TAUX_COLUMN, DATE_COLUMN, DEPILLICULAGE_COLUMN, FORME_NOIX_COLUMN, SEPARATION_NOIX_POMMES_COLUMN, OBS_COLUMN, ID_ARBRE_COLUMN, CODE_ARBRE_COLUMN};
 
     public static final String CREATE_VISITE_FLORAISON_TABLE = "CREATE TABLE "
@@ -66,7 +66,7 @@ public class VisiteRecoltes {
         database.execSQL(DROP_VISITE_FLORAISON_TABLE);
     }
 
-    public VisiteRecoltes() {
+    public Recolte() {
     }
 
     public long getIdvisiteRecolte() {
@@ -157,11 +157,11 @@ public class VisiteRecoltes {
         this.codeArbre = codeArbre;
     }
 
-    public ArrayList<PhotosRecoltes> getPhotosRecoltes() {
-        return photosRecoltes;
+    public ArrayList<PhotoRecolte> getPhotoRecolte() {
+        return photoRecoltes;
     }
 
-    public void setPhotosRecoltes(ArrayList<PhotosRecoltes> photosRecoltes) {
-        this.photosRecoltes = photosRecoltes;
+    public void setPhotoRecolte(ArrayList<PhotoRecolte> photosRecoltes) {
+        this.photoRecoltes = photosRecoltes;
     }
 }

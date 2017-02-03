@@ -8,7 +8,7 @@ import android.util.Log;
  * Created by leinad on 2/3/17 6:23 AM.
  */
 
-public class PhotosRecoltes {
+public class PhotoRecolte {
 
     private static final String TAG = "Db-Photo-Recoltes-Log";
 
@@ -46,7 +46,7 @@ public class PhotosRecoltes {
         database.execSQL(DROP_PHOTO_FLORAISON_TABLE);
     }
 
-    public PhotosRecoltes() {
+    public PhotoRecolte() {
     }
 
     public long getIdPhotos() {

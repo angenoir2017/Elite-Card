@@ -19,7 +19,7 @@ public class VisiteFloraison {
     private String dateFloraison;
     private long idArbre;
     private String codeArbre;
-    private ArrayList<PhotosFloraison> photosFloraisons;
+    private ArrayList<PhotoFloraison> photoFloraisons;
 
     public static final String TABLE = "visite_floraison";
     public static final String ID_FLORAISON_COLUMN = "id_visite_floraison";
@@ -105,11 +105,11 @@ public class VisiteFloraison {
         this.codeArbre = codeArbre;
     }
 
-    public ArrayList<PhotosFloraison> getPhotosFloraisons() {
-        return photosFloraisons;
+    public ArrayList<PhotoFloraison> getPhotoFloraisons() {
+        return photoFloraisons;
     }
 
-    public void setPhotosFloraisons(ArrayList<PhotosFloraison> photosFloraisons) {
-        this.photosFloraisons = photosFloraisons;
+    public void setPhotoFloraisons(ArrayList<PhotoFloraison> photoFloraisons) {
+        this.photoFloraisons = photoFloraisons;
     }
 }

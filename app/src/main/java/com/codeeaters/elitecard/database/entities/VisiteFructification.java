@@ -24,7 +24,7 @@ public class VisiteFructification {
     private String codeArbre;
     private ArrayList<PhotoFructification> photoFructification;
 
-    public static final String TABLE = "visite_fructification";
+    public static final String TABLE = "visites_fructification";
     public static final String ID_FRUCTIFICATION_COLUMN = "id_visite_fructification";
     public static final String CODE_FRUCTIFICATION_COLUMN = "code_fructification";
     public static final String DENSITE_COLUMN = "densite";
@@ -36,7 +36,8 @@ public class VisiteFructification {
     public static final String CODE_ARBRE_COLUMN = "code_arbre";
 
     public static final String[] COLUMNS = {ID_FRUCTIFICATION_COLUMN, CODE_FRUCTIFICATION_COLUMN,
-            DENSITE_COLUMN, FRUCTIFICATION_HOMOGENE_COLUMN, MATURITE_RAPIDE_HOMOGENE_COLUMN, FRUIT_MELANGE_FLEUR_COLUMN, OBS_COLUMN, ID_ARBRE_COLUMN, CODE_ARBRE_COLUMN};
+            DENSITE_COLUMN, FRUCTIFICATION_HOMOGENE_COLUMN, MATURITE_RAPIDE_HOMOGENE_COLUMN,
+            FRUIT_MELANGE_FLEUR_COLUMN, OBS_COLUMN, ID_ARBRE_COLUMN, CODE_ARBRE_COLUMN};
 
     public static final String CREATE_VISITE_FLORAISON_TABLE = "CREATE TABLE "
             + TABLE + " (" + ID_FRUCTIFICATION_COLUMN + " INTEGER PRIMARY KEY AUTOINCREMENT, "

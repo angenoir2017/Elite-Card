@@ -46,7 +46,7 @@ public class Producteur implements Parcelable {
             REGION_COLUMN, PREFECTURE_COLUMN, CANTON_COLUMN, VILLAGE_COLUMN, AGE_PRODUCTEUR_COLUMN,
             SEXE_COLUMN, OBS_COLUMN, CODE_AGENT_COLUMN, SEQUENCE_COLUMN};
 
-    public static final String CREATE_PRODUCTEUR_TABLE = "CREATE TABLE "
+    public static final String CREATE_TABLE = "CREATE TABLE "
             + TABLE + " (" + ID_PRODUCTEUR_COLUMN + " INTEGER PRIMARY KEY AUTOINCREMENT, "
             + CODE_PRODUCTEUR_COLUMN + " TEXT NOT NULL UNIQUE, "
             + REGION_COLUMN + " TEXT, "
@@ -59,28 +59,12 @@ public class Producteur implements Parcelable {
             + CODE_AGENT_COLUMN + " TEXT, "
             + SEQUENCE_COLUMN + " INTEGER )";
 
-    public static final String DROP_PRODUCTEUR_TABLE = "DROP TABLE IF EXISTS "+ TABLE;
+    public static final String DROP_TABLE = "DROP TABLE IF EXISTS "+ TABLE;
 
     public static final String INSERT = "INSERT INTO producteurs VALUES(1, '1-1-1','rrtttyuii','erty','tyuio','etry',23,'M','azet', '1-1', 3);";
     public static final String INSERT1 = "INSERT INTO producteurs VALUES(2, '1-1-2','aze','aze','aze','aze',23,'F','aze', '1-1', 2);";
 
     public Producteur() {
-    }
-
-    public Producteur(long idProducteur, String codeProducteur, String region, String prefecture,
-                      String canton, String village, int age_arbre, String sexe,
-                      String observation, String codeAgent, int sequence) {
-        this.idProducteur = idProducteur;
-        this.codeProducteur = codeProducteur;
-        this.region = region;
-        this.prefecture = prefecture;
-        this.canton = canton;
-        this.village = village;
-        this.age = age_arbre;
-        this.sexe = sexe;
-        this.observation = observation;
-        this.codeAgent = codeAgent;
-        this.sequence = sequence;
     }
 
     protected Producteur(Parcel in) {
@@ -130,8 +114,8 @@ public class Producteur implements Parcelable {
     }
 
     public static void createTable(SQLiteDatabase database){
-        Log.d(TAG, CREATE_PRODUCTEUR_TABLE);
-        database.execSQL(CREATE_PRODUCTEUR_TABLE);
+        Log.d(TAG, CREATE_TABLE);
+        database.execSQL(CREATE_TABLE);
 
         Log.d(TAG, INSERT);
         database.execSQL(INSERT);
@@ -141,8 +125,8 @@ public class Producteur implements Parcelable {
     }
 
     public static void dropTable(SQLiteDatabase database){
-        Log.d(TAG, DROP_PRODUCTEUR_TABLE);
-        database.execSQL(DROP_PRODUCTEUR_TABLE);
+        Log.d(TAG, DROP_TABLE);
+        database.execSQL(DROP_TABLE);
     }
 
     public int getSequence() {
@@ -265,36 +249,5 @@ public class Producteur implements Parcelable {
                 ", sequence=" + sequence +
                 ", arbres=" + arbres +
                 '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Producteur that = (Producteur) o;
-
-        if (idProducteur != that.idProducteur) return false;
-        if (age != that.age) return false;
-        if (!codeProducteur.equals(that.codeProducteur)) return false;
-        if (region != null ? !region.equals(that.region) : that.region != null) return false;
-        if (prefecture != null ? !prefecture.equals(that.prefecture) : that.prefecture != null)
-            return false;
-        if (canton != null ? !canton.equals(that.canton) : that.canton != null) return false;
-        if (village != null ? !village.equals(that.village) : that.village != null) return false;
-        if (sexe != null ? !sexe.equals(that.sexe) : that.sexe != null) return false;
-        if (observation != null ? !observation.equals(that.observation) : that.observation != null)
-            return false;
-        if (!codeAgent.equals(that.codeAgent)) return false;
-        return arbres != null ? arbres.equals(that.arbres) : that.arbres == null;
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = (int) idProducteur;
-        result = 31 * result + codeProducteur.hashCode();
-        result = 31 * result + codeAgent.hashCode();
-        return result;
     }
 }

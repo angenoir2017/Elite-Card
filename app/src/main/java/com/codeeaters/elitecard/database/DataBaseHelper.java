@@ -6,7 +6,13 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import com.codeeaters.elitecard.database.entities.Arbre;
+import com.codeeaters.elitecard.database.entities.PhotoFloraison;
+import com.codeeaters.elitecard.database.entities.PhotoFructification;
+import com.codeeaters.elitecard.database.entities.PhotoRecolte;
 import com.codeeaters.elitecard.database.entities.Producteur;
+import com.codeeaters.elitecard.database.entities.Recolte;
+import com.codeeaters.elitecard.database.entities.VisiteFloraison;
+import com.codeeaters.elitecard.database.entities.VisiteFructification;
 
 
 /**
@@ -45,8 +51,30 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         Log.d(TAG, "Create Table Producteur");
         Producteur.createTable(db);
+
         Log.d(TAG, "Create Table Arbre");
         Arbre.createTable(db);
+
+        Log.d(TAG, "Create Table Visite Floraison");
+        VisiteFloraison.createTable(db);
+
+        Log.d(TAG, "Create Table Photo Floraison");
+        PhotoFloraison.createTable(db);
+
+        Log.d(TAG, "Create Table Visite Fructification");
+        VisiteFructification.createTable(db);
+
+        Log.d(TAG, "Create Table Photo Fructification");
+        PhotoFructification.createTable(db);
+
+        Log.d(TAG, "Update Table Arbre Add Foreign Keys");
+        Arbre.addForeignkeys(db);
+
+        Log.d(TAG, "Create Table Recolte");
+        Recolte.createTable(db);
+
+        Log.d(TAG, "Create Table Photo Recolte");
+        PhotoRecolte.createTable(db);
     }
 
     @Override
@@ -55,16 +83,30 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 + oldVersion + " to "
                 + newVersion + " which destroys all old data");
 
+        Log.d(TAG, "Drop Table Recolte");
+        PhotoRecolte.dropTable(db);
+
+        Log.d(TAG, "Drop Table Recolte");
+        Recolte.dropTable(db);
+
+        Log.d(TAG, "Drop Table Photo Fructification");
+        PhotoFructification.dropTable(db);
+
+        Log.d(TAG, "Drop Table Visite Fructification");
+        VisiteFructification.dropTable(db);
+
+        Log.d(TAG, "Drop Table Photo Floraison");
+        PhotoFloraison.dropTable(db);
+
+        Log.d(TAG, "Drop Table Visite Floraison");
+        VisiteFloraison.dropTable(db);
+
         Log.d(TAG, "Drop Table Arbre");
         Arbre.dropTable(db);
 
         Log.d(TAG, "Drop Table Producteur");
         Producteur.dropTable(db);
 
-        Log.d(TAG, "Create Table Producteur");
-        Producteur.createTable(db);
-
-        Log.d(TAG, "Create Table Arbre");
-        Arbre.createTable(db);
+        onCreate(db);
     }
 }

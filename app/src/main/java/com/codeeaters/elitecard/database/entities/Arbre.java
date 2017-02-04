@@ -84,9 +84,9 @@ public class Arbre implements Parcelable {
             REGION_COLUMN, PREFECTURE_COLUMN, CANTON_COLUMN, VILLAGE_COLUMN, ORIGINE_COLUMN,
             CHOIX_COLUMN, H_COLUMN, RN_COLUMN, RS_COLUMN, RE_COLUMN, RO_COLUMN, CT_COLUMN,
             CE_COLUMN, CC_COLUMN, AR_COLUMN, EP_COLUMN, DCNS_COLUMN, DCEO_COLUMN, OBS_COLUMN,
-            LON_COLUMN, LAT_COLUMN, VISITE_FL_COLUMN, VISITE_FR_COLUMN, ID_PRODUCTEUR_COLUMN, CODE_PRODUCTEUR_COLUMN,
-            ID_FLORAISON_COLUMN, CODE_FLORAISON_COLUMN, ID_FRUCTIFICATION_COLUMN,
-            CODE_FRUCTIFICATION_COLUMN};
+            LON_COLUMN, LAT_COLUMN, VISITE_FL_COLUMN, VISITE_FR_COLUMN, ID_PRODUCTEUR_COLUMN,
+            CODE_PRODUCTEUR_COLUMN, ID_FLORAISON_COLUMN, CODE_FLORAISON_COLUMN,
+            ID_FRUCTIFICATION_COLUMN, CODE_FRUCTIFICATION_COLUMN};
 
     public static final String CREATE_ARBRE_TABLE = "CREATE TABLE "
             + TABLE + " (" + ID_ARBRE_COLUMN + " INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -117,20 +117,29 @@ public class Arbre implements Parcelable {
             + VISITE_FR_COLUMN + " INTEGER, "
             + ID_PRODUCTEUR_COLUMN + " INTEGER, "
             + CODE_PRODUCTEUR_COLUMN + " TEXT, "
-            + ID_FLORAISON_COLUMN + " INTEGER, "
-            + CODE_FLORAISON_COLUMN + " TEXT, "
-            + ID_FRUCTIFICATION_COLUMN + " INTEGER, "
-            + CODE_FRUCTIFICATION_COLUMN + " TEXT, "
             + "FOREIGN KEY(" + ID_PRODUCTEUR_COLUMN + ") REFERENCES " + Producteur.TABLE + "(" + ID_PRODUCTEUR_COLUMN + "),"
             + "FOREIGN KEY(" + CODE_PRODUCTEUR_COLUMN + ") REFERENCES " + Producteur.TABLE + "(" + CODE_PRODUCTEUR_COLUMN + "))";
 
     public static final String DROP_PRODUCTEUR_TABLE = "DROP TABLE IF EXISTS " + TABLE;
 
-    public static final String INSERT = "INSERT INTO arbres VALUES(1,'1-1-1-1',8,'aaze','azeaz','azea','azea','aze',1,23.0,2.0,3.0,4.0,3.0,1,'azee','aze',1,1.0,1,3,'azeze',56.0,56.0,0,0,1,'1-1-1',1,'1',1,'1');";
-    public static final String INSERT1 = "INSERT INTO arbres VALUES(2,'1-1-1-2',3,'azer','aze','aze','aze','aze',2,23.0,23.0,12.0,12.0,12.0,1,'aze','aze',1,1.0,1,1,'aze',56.0,56.0,0,0,1,'1-1-1',1,'1',1,'1');";
-    public static final String INSERT2 = "INSERT INTO arbres VALUES(3,'1-1-2-1',2,'aze','aze','aze','aze','aze',1,2.0,1.0,23.0,23.0,23.0,1,'aze','aze',0,1.0,1,2,'aze',56.0,56.0,0,0,2,'1-1-2',1,'1',1,'1');";
-    public static final String INSERT3 = "INSERT INTO arbres VALUES(4,'1-1-2-2',2,'aze','aze','er','re','re',1,2.0,23.0,23.0,21.0,1.0,0,'aze','aze',0,1.0,2,1,'aze',56.0,56.0,0,0,2,'1-1-2',1,'1',1,'1');";
-    public static final String INSERT4 = "INSERT INTO arbres VALUES(5,'1-1-1-3',1,'aze','zae','ear','era','aer',1,23.0,14.0,23.0,21.0,56.0,0,'aze','er',1,56.0,1,6,'azer',56.0,56.0,0,0,1,'1-1-1',1,'1',1,'1');";
+    public static final String ADD_FOREIGN_KEYS1 = "ALTER TABLE " + TABLE + " ADD COLUMN "
+            + ID_FLORAISON_COLUMN + " INTEGER REFERENCES "
+            + VisiteFloraison.TABLE + "(" + ID_FLORAISON_COLUMN + ")";
+    public static final String ADD_FOREIGN_KEYS2 = "ALTER TABLE " + TABLE + " ADD COLUMN "
+            + CODE_FLORAISON_COLUMN + " TEXT REFERENCES "
+            + VisiteFloraison.TABLE + "(" + CODE_FLORAISON_COLUMN + ")";
+    public static final String ADD_FOREIGN_KEYS3 = "ALTER TABLE " + TABLE + " ADD COLUMN "
+            + ID_FRUCTIFICATION_COLUMN + " INTEGER REFERENCES "
+            + VisiteFructification.TABLE + "(" + ID_FRUCTIFICATION_COLUMN + ")";
+    public static final String ADD_FOREIGN_KEYS4 = "ALTER TABLE " + TABLE + " ADD COLUMN "
+            + CODE_FRUCTIFICATION_COLUMN + " TEXT REFERENCES "
+            + VisiteFructification.TABLE + "(" + CODE_FRUCTIFICATION_COLUMN + ")";
+
+    public static final String INSERT = "INSERT INTO arbres VALUES(1,'1-1-1-1',8,'aaze','azeaz','azea','azea','aze',1,23.0,2.0,3.0,4.0,3.0,1,'azee','aze',1,1.0,1,3,'azeze',56.0,56.0,0,0,1,'1-1-1');";
+    public static final String INSERT1 = "INSERT INTO arbres VALUES(2,'1-1-1-2',3,'azer','aze','aze','aze','aze',2,23.0,23.0,12.0,12.0,12.0,1,'aze','aze',1,1.0,1,1,'aze',56.0,56.0,0,0,1,'1-1-1');";
+    public static final String INSERT2 = "INSERT INTO arbres VALUES(3,'1-1-2-1',2,'aze','aze','aze','aze','aze',1,2.0,1.0,23.0,23.0,23.0,1,'aze','aze',0,1.0,1,2,'aze',56.0,56.0,0,0,2,'1-1-2');";
+    public static final String INSERT3 = "INSERT INTO arbres VALUES(4,'1-1-2-2',2,'aze','aze','er','re','re',1,2.0,23.0,23.0,21.0,1.0,0,'aze','aze',0,1.0,2,1,'aze',56.0,56.0,0,0,2,'1-1-2');";
+    public static final String INSERT4 = "INSERT INTO arbres VALUES(5,'1-1-1-3',1,'aze','zae','ear','era','aer',1,23.0,14.0,23.0,21.0,56.0,0,'aze','er',1,56.0,1,6,'azer',56.0,56.0,0,0,1,'1-1-1');";
 
     public Arbre() {
     }
@@ -246,6 +255,20 @@ public class Arbre implements Parcelable {
     public static void dropTable(SQLiteDatabase database) {
         Log.d(TAG, DROP_PRODUCTEUR_TABLE);
         database.execSQL(DROP_PRODUCTEUR_TABLE);
+    }
+
+    public static void addForeignkeys(SQLiteDatabase database) {
+        Log.d(TAG, ADD_FOREIGN_KEYS1);
+        database.execSQL(ADD_FOREIGN_KEYS1);
+
+        Log.d(TAG, ADD_FOREIGN_KEYS2);
+        database.execSQL(ADD_FOREIGN_KEYS2);
+
+        Log.d(TAG, ADD_FOREIGN_KEYS3);
+        database.execSQL(ADD_FOREIGN_KEYS3);
+
+        Log.d(TAG, ADD_FOREIGN_KEYS4);
+        database.execSQL(ADD_FOREIGN_KEYS4);
     }
 
     public int getVisiteFloraison() {

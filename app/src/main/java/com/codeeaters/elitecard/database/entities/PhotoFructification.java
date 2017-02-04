@@ -20,7 +20,7 @@ public class PhotoFructification {
     private long idvisiteFructification;
     private String codeFructification;
 
-    public static final String TABLE = "photo_fructification";
+    public static final String TABLE = "photos_fructification";
     public static final String ID_PHOTO_FRUCTIFICATION_COLUMN = "id_photo_fructification";
     public static final String PHOTO_COLUMN = "photo";
     public static final String ID_FRUCTIFICATION_COLUMN = "id_visite_fructification";
@@ -29,24 +29,24 @@ public class PhotoFructification {
     public static final String[] COLUMNS = {ID_PHOTO_FRUCTIFICATION_COLUMN,
             PHOTO_COLUMN, ID_FRUCTIFICATION_COLUMN, CODE_FRUCTIFICATION_COLUMN};
 
-    public static final String CREATE_PHOTO_FLORAISON_TABLE = "CREATE TABLE "
+    public static final String CREATE_TABLE = "CREATE TABLE "
             + TABLE + " (" + ID_PHOTO_FRUCTIFICATION_COLUMN + " INTEGER PRIMARY KEY AUTOINCREMENT, "
             + PHOTO_COLUMN + " BLOB, "
             + ID_FRUCTIFICATION_COLUMN + " INTEGER, "
             + CODE_FRUCTIFICATION_COLUMN + " TEXT, "
-            + "FOREIGN KEY(" + ID_FRUCTIFICATION_COLUMN + ") REFERENCES " + VisiteFloraison.TABLE + "(" + ID_FRUCTIFICATION_COLUMN + "),"
-            + "FOREIGN KEY(" + CODE_FRUCTIFICATION_COLUMN + ") REFERENCES " + VisiteFloraison.TABLE + "(" + CODE_FRUCTIFICATION_COLUMN + "))";
+            + "FOREIGN KEY(" + ID_FRUCTIFICATION_COLUMN + ") REFERENCES " + VisiteFructification.TABLE + "(" + ID_FRUCTIFICATION_COLUMN + "),"
+            + "FOREIGN KEY(" + CODE_FRUCTIFICATION_COLUMN + ") REFERENCES " + VisiteFructification.TABLE + "(" + CODE_FRUCTIFICATION_COLUMN + "))";
 
-    public static final String DROP_PHOTO_FLORAISON_TABLE = "DROP TABLE IF EXISTS " + TABLE;
+    public static final String DROP_TABLE = "DROP TABLE IF EXISTS " + TABLE;
 
     public static void createTable(SQLiteDatabase database) {
-        Log.d(TAG, CREATE_PHOTO_FLORAISON_TABLE);
-        database.execSQL(CREATE_PHOTO_FLORAISON_TABLE);
+        Log.d(TAG, CREATE_TABLE);
+        database.execSQL(CREATE_TABLE);
     }
 
     public static void dropTable(SQLiteDatabase database) {
-        Log.d(TAG, DROP_PHOTO_FLORAISON_TABLE);
-        database.execSQL(DROP_PHOTO_FLORAISON_TABLE);
+        Log.d(TAG, DROP_TABLE);
+        database.execSQL(DROP_TABLE);
     }
 
     public PhotoFructification() {

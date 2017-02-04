@@ -20,7 +20,7 @@ public class PhotoFloraison {
     private long idvisiteFloraison;
     private String codeFloraison;
 
-    public static final String TABLE = "photo_floraison";
+    public static final String TABLE = "photos_floraison";
     public static final String ID_PHOTO_FLORAISON_COLUMN = "id_photo_floraison";
     public static final String PHOTO_COLUMN = "photo";
     public static final String ID_FLORAISON_COLUMN = "id_visite_floraison";
@@ -29,7 +29,7 @@ public class PhotoFloraison {
     public static final String[] COLUMNS = {ID_PHOTO_FLORAISON_COLUMN,
             PHOTO_COLUMN, ID_FLORAISON_COLUMN, CODE_FLORAISON_COLUMN};
 
-    public static final String CREATE_PHOTO_FLORAISON_TABLE = "CREATE TABLE "
+    public static final String CREATE_TABLE = "CREATE TABLE "
             + TABLE + " (" + ID_PHOTO_FLORAISON_COLUMN + " INTEGER PRIMARY KEY AUTOINCREMENT, "
             + PHOTO_COLUMN + " BLOB, "
             + ID_FLORAISON_COLUMN + " INTEGER, "
@@ -37,19 +37,19 @@ public class PhotoFloraison {
             + "FOREIGN KEY(" + ID_FLORAISON_COLUMN + ") REFERENCES " + VisiteFloraison.TABLE + "(" + ID_FLORAISON_COLUMN + "),"
             + "FOREIGN KEY(" + CODE_FLORAISON_COLUMN + ") REFERENCES " + VisiteFloraison.TABLE + "(" + CODE_FLORAISON_COLUMN + "))";
 
-    public static final String DROP_PHOTO_FLORAISON_TABLE = "DROP TABLE IF EXISTS " + TABLE;
+    public static final String DROP_TABLE = "DROP TABLE IF EXISTS " + TABLE;
 
     public PhotoFloraison() {
     }
 
     public static void createTable(SQLiteDatabase database) {
-        Log.d(TAG, CREATE_PHOTO_FLORAISON_TABLE);
-        database.execSQL(CREATE_PHOTO_FLORAISON_TABLE);
+        Log.d(TAG, CREATE_TABLE);
+        database.execSQL(CREATE_TABLE);
     }
 
     public static void dropTable(SQLiteDatabase database) {
-        Log.d(TAG, DROP_PHOTO_FLORAISON_TABLE);
-        database.execSQL(DROP_PHOTO_FLORAISON_TABLE);
+        Log.d(TAG, DROP_TABLE);
+        database.execSQL(DROP_TABLE);
     }
 
     public byte[] getPhotoBuffer() {

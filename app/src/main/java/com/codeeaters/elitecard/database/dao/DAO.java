@@ -29,6 +29,7 @@ public class DAO {
         }
 
         db = dbHelper.getWritableDatabase();
-//        dbHelper.onUpgrade(db, 1, 2);
+        dbHelper.onUpgrade(db, 1, 2);
     }
+
 }

@@ -54,6 +54,8 @@ public class ProducteurDAO extends DAO implements IDAO<Producteur> {
             Arbre.TABLE + "." + Arbre.OBS_COLUMN,
             Arbre.TABLE + "." + Arbre.LON_COLUMN,
             Arbre.TABLE + "." + Arbre.LAT_COLUMN,
+            Arbre.TABLE + "." + Arbre.VISITE_FL_COLUMN,
+            Arbre.TABLE + "." + Arbre.VISITE_FR_COLUMN,
             Arbre.TABLE + "." + Arbre.ID_PRODUCTEUR_COLUMN,
             Arbre.TABLE + "." + Arbre.CODE_PRODUCTEUR_COLUMN,
             Arbre.TABLE + "." + Arbre.ID_FLORAISON_COLUMN,

@@ -21,7 +21,7 @@ public class VisiteFloraison {
     private String codeArbre;
     private ArrayList<PhotoFloraison> photoFloraisons;
 
-    public static final String TABLE = "visite_floraison";
+    public static final String TABLE = "visites_floraison";
     public static final String ID_FLORAISON_COLUMN = "id_visite_floraison";
     public static final String CODE_FLORAISON_COLUMN = "code_floraison";
     public static final String TAUX_COLUMN = "taux_abondance";
@@ -32,7 +32,7 @@ public class VisiteFloraison {
     public static final String[] COLUMNS = {ID_FLORAISON_COLUMN,
             CODE_FLORAISON_COLUMN, TAUX_COLUMN, DATE_COLUMN, ID_ARBRE_COLUMN, CODE_ARBRE_COLUMN};
 
-    public static final String CREATE_VISITE_FLORAISON_TABLE = "CREATE TABLE "
+    public static final String CREATE_TABLE = "CREATE TABLE "
             + TABLE + " (" + ID_FLORAISON_COLUMN + " INTEGER PRIMARY KEY AUTOINCREMENT, "
             + CODE_FLORAISON_COLUMN + " TEXT NOT NULL UNIQUE, "
             + TAUX_COLUMN + " TEXT, "
@@ -42,19 +42,19 @@ public class VisiteFloraison {
             + "FOREIGN KEY(" + ID_ARBRE_COLUMN + ") REFERENCES " + Arbre.TABLE + "(" + ID_ARBRE_COLUMN + "),"
             + "FOREIGN KEY(" + CODE_ARBRE_COLUMN + ") REFERENCES " + Arbre.TABLE + "(" + CODE_ARBRE_COLUMN + "))";
 
-    public static final String DROP_VISITE_FLORAISON_TABLE = "DROP TABLE IF EXISTS " + TABLE;
+    public static final String DROP_TABLE = "DROP TABLE IF EXISTS " + TABLE;
 
     public VisiteFloraison() {
     }
 
     public static void createTable(SQLiteDatabase database) {
-        Log.d(TAG, CREATE_VISITE_FLORAISON_TABLE);
-        database.execSQL(CREATE_VISITE_FLORAISON_TABLE);
+        Log.d(TAG, CREATE_TABLE);
+        database.execSQL(CREATE_TABLE);
     }
 
     public static void dropTable(SQLiteDatabase database) {
-        Log.d(TAG, DROP_VISITE_FLORAISON_TABLE);
-        database.execSQL(DROP_VISITE_FLORAISON_TABLE);
+        Log.d(TAG, DROP_TABLE);
+        database.execSQL(DROP_TABLE);
     }
 
     public long getIdvisiteFloraison() {

@@ -26,7 +26,7 @@ public class Recolte {
     private ArrayList<PhotoRecolte> photoRecoltes;
 
     public static final String TABLE = "recoltes";
-    public static final String ID_RECOLTES_COLUMN = "id_visite_recolte";
+    public static final String ID_RECOLTES_COLUMN = "id_recolte";
     public static final String CODE_RECOLTES_COLUMN = "code_recolte";
     public static final String TAUX_COLUMN = "taux";
     public static final String DATE_COLUMN = "date";
@@ -38,9 +38,10 @@ public class Recolte {
     public static final String CODE_ARBRE_COLUMN = "code_arbre";
 
     public static final String[] COLUMNS = {ID_RECOLTES_COLUMN, CODE_RECOLTES_COLUMN,
-            TAUX_COLUMN, DATE_COLUMN, DEPILLICULAGE_COLUMN, FORME_NOIX_COLUMN, SEPARATION_NOIX_POMMES_COLUMN, OBS_COLUMN, ID_ARBRE_COLUMN, CODE_ARBRE_COLUMN};
+            TAUX_COLUMN, DATE_COLUMN, DEPILLICULAGE_COLUMN, FORME_NOIX_COLUMN,
+            SEPARATION_NOIX_POMMES_COLUMN, OBS_COLUMN, ID_ARBRE_COLUMN, CODE_ARBRE_COLUMN};
 
-    public static final String CREATE_VISITE_FLORAISON_TABLE = "CREATE TABLE "
+    public static final String CREATE_TABLE = "CREATE TABLE "
             + TABLE + " (" + ID_RECOLTES_COLUMN + " INTEGER PRIMARY KEY AUTOINCREMENT, "
             + CODE_RECOLTES_COLUMN + " TEXT NOT NULL UNIQUE, "
             + TAUX_COLUMN + " TEXT, "
@@ -54,16 +55,16 @@ public class Recolte {
             + "FOREIGN KEY(" + ID_ARBRE_COLUMN + ") REFERENCES " + Arbre.TABLE + "(" + ID_ARBRE_COLUMN + "),"
             + "FOREIGN KEY(" + CODE_ARBRE_COLUMN + ") REFERENCES " + Arbre.TABLE + "(" + CODE_ARBRE_COLUMN + "))";
 
-    public static final String DROP_VISITE_FLORAISON_TABLE = "DROP TABLE IF EXISTS " + TABLE;
+    public static final String DROP_TABLE = "DROP TABLE IF EXISTS " + TABLE;
 
     public static void createTable(SQLiteDatabase database) {
-        Log.d(TAG, CREATE_VISITE_FLORAISON_TABLE);
-        database.execSQL(CREATE_VISITE_FLORAISON_TABLE);
+        Log.d(TAG, CREATE_TABLE);
+        database.execSQL(CREATE_TABLE);
     }
 
     public static void dropTable(SQLiteDatabase database) {
-        Log.d(TAG, DROP_VISITE_FLORAISON_TABLE);
-        database.execSQL(DROP_VISITE_FLORAISON_TABLE);
+        Log.d(TAG, DROP_TABLE);
+        database.execSQL(DROP_TABLE);
     }
 
     public Recolte() {
